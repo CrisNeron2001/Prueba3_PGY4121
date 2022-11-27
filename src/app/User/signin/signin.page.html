@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>createuser</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-toolbar>
+        <ion-title>REGISTRARSE</ion-title>
+      </ion-toolbar>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="signForm" (ngSubmit)="onSubmit()">
+        <ion-item lines="full">
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="name" type="text" required></ion-input>
+          <span *ngIf="this.signForm.get('name')?.errors?.['required']">(*requerido)</span>
+          <span *ngIf="this.signForm.get('name')?.errors?.['minlength']">(El nombre debe tener como mínimo 4
+            caracteres)</span>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Dirección</ion-label>
+          <ion-input formControlName="address" type="text" required></ion-input>
+          <span *ngIf="this.signForm.get('address')?.errors?.['required']">(*requerido)</span>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="email" required></ion-input>
+          <span *ngIf="this.signForm.get('email')?.errors?.['required']">(*requerido)</span>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Edad</ion-label>
+          <ion-input formControlName="age" type="text" required></ion-input>
+          <span *ngIf="this.signForm.get('age')?.errors?.['required']">(*requerido)</span>
+          <span *ngIf="this.signForm.get('age')?.errors?.['maxlength']">(Ingresar edad correcta)</span>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Teléfono</ion-label>
+          <ion-input formControlName="phone" type="text" required></ion-input>
+          <span *ngIf="this.signForm.get('phone')?.errors?.['required']">(*requerido)</span>
+          <span *ngIf="this.signForm.get('phone')?.errors?.['maxlength']">(Ingresar n° de 8 dígitos)</span>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input formControlName="username" type="text" required></ion-input>
+          <span *ngIf="this.signForm.get('username')?.errors?.['required']">(*requerido)</span>
+          <span *ngIf="this.signForm.get('username')?.errors?.['maxlength']">(Debe tener no más de 8 caracteres)</span>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input formControlName="password" type="password" required></ion-input>
+          <span *ngIf="this.signForm.get('password')?.errors?.['required']">(*requerido)</span>
+          <span *ngIf="this.signForm.get('password')?.errors?.['maxlength']">(Debe tener no más de 8 caracteres)</span>
+        </ion-item>
+        <br />
+        <p>
+          <ion-button type="submit" expand="block">ENVIAR</ion-button>
+        </p>
+        <br />
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

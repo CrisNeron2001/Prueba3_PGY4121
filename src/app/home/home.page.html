@@ -1,20 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Bienvenido
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div style="justify-content: center; width: 75rem;">
+    <img src="../../assets/logo.webp">
+  </div>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong style="border: 5pt; border-color:blue ;">¿Quién eres?</strong>
+    <p>
+      <ion-button expand="block" color="primary" (click)="onClick()">Haz Click aquí, si te identificas como un Usuario
+        Común.</ion-button>
+    </p>
+    <p>
+      <ion-button expand="block" color="success" (click)="onClickIsAdmin()">Haz Click aquí, si te identificas como un
+        Usuario Administrador.</ion-button>
+    </p>
   </div>
 </ion-content>

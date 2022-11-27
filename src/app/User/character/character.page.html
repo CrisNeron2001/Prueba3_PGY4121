@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Personajes</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let chara of characters" [routerLink]="['/check-character/' + chara.id]">
+      <ion-avatar slot="start">
+        <img src="{{chara.image}}">
+      </ion-avatar>
+      <ion-label>{{chara.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

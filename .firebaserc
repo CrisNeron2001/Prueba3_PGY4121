@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bbddpgy": {
+      "hosting": {
+        "app": [
+          "bbddpgy"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bbddpgy"
+  }
+}

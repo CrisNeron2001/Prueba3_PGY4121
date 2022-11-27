@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login Administrador</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-toolbar>
+        <ion-title>INICIAR SESIÓN</ion-title>
+      </ion-toolbar>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="logAdmin" (ngSubmit)="onSubmit()" validate>
+        <ion-item lines="full">
+          <ion-label position="floating">Admin</ion-label>
+          <ion-input placeholder="Ingrese el usuario" formControlName="email" type="text" required></ion-input>
+          <span *ngIf="this.logAdmin.get('email')?.errors?.['required']">(*requerido)</span>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input placeholder="Ingrese la contraseña" formControlName="password" type="password" required>
+          </ion-input>
+          <span *ngIf="this.logAdmin.get('password')?.errors?.['required']">(*requerido)</span>
+          <span *ngIf="this.logAdmin.get('password')?.errors?.['minlength']">(La contraseña debe tener como mínimo 4
+            caracteres)</span>
+          <span *ngIf="this.logAdmin.get('password')?.errors?.['maxlength']">(La contraseña debe tener como máximo 8
+            caracteres)</span>
+
+        </ion-item>
+        <br />
+        <ion-button expand="block" color="primary" type="submit">INGRESAR</ion-button>
+        <p>
+          <ion-button expand="block" color="primary" [routerLink]="['/sign-admin']">REGISTRARSE</ion-button>
+        </p>
+        <p>
+          <ion-button class="btn btn-info" (click)="onClick()">Iniciar sesión con Google</ion-button>
+        </p>
+        <br />
+        <br />
+        <!-- <ion-label style="color: red">{{this.alert}}</ion-label> -->
+      </form>
+    </ion-card-content>
+  </ion-card>
+  <!-- <p>
+    <ion-button fill="clear" [routerLink]="['/home']">Ir al inicio</ion-button>
+  </p>
+  <p>
+    <ion-button fill="clear" [routerLink]="['/adminmenu']">Ir al menu</ion-button>
+  </p> -->
+</ion-content>
+<ion-footer collapse="fade" id="fot">
+  <p><a href="#"> Ir al Inicio</a></p>
+  <p>Todos los derechos reservados</p>
+</ion-footer>
