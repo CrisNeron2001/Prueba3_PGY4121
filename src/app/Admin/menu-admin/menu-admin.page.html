@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Menú principal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: contents;justify-content: center; width: 5rem;">
+    <img src="../../../assets/icon/Rick-and-Morty.png">
+  </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>MENÚ</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-button fill="clear" [routerLink]="['/check-user']">VER USUARIOS</ion-button>
+        </ion-item>
+        <ion-item>
+          <ion-button fill="clear" (click)="onClick()">CERRAR</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
