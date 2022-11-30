@@ -15,7 +15,6 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./User/login/login.module').then(m => m.LoginPageModule),
-
   },
   {
     path: 'signin',
@@ -41,23 +40,28 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: () => import('./User/profile/profile.module').then(m => m.ProfilePageModule)
+    loadChildren: () => import('./User/profile/profile.module').then(m => m.ProfilePageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login']))
   },
   {
     path: 'character',
-    loadChildren: () => import('./User/character/character.module').then(m => m.CharacterPageModule)
+    loadChildren: () => import('./User/character/character.module').then(m => m.CharacterPageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login']))
   },
   {
     path: 'check-character/:id',
-    loadChildren: () => import('./User/check-character/check-character.module').then(m => m.CheckCharacterPageModule)
+    loadChildren: () => import('./User/check-character/check-character.module').then(m => m.CheckCharacterPageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login']))
   },
   {
     path: 'check-user',
-    loadChildren: () => import('./Admin/check-user/check-user.module').then(m => m.CheckUserPageModule)
+    loadChildren: () => import('./Admin/check-user/check-user.module').then(m => m.CheckUserPageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login-admin']))
   },
   {
     path: 'add-character',
-    loadChildren: () => import('./User/add-character/add-character.module').then( m => m.AddCharacterPageModule)
+    loadChildren: () => import('./User/add-character/add-character.module').then(m => m.AddCharacterPageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login']))
   }
 ];
 
