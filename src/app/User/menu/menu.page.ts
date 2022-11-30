@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServerApiService } from 'src/app/service/serverApi/server-api.service';
 import { ServerFireService } from 'src/app/service/serverFire/server-fire.service';
-import { User } from 'src/app/interface/user.interface';
 
 @Component({
   selector: 'app-menu',

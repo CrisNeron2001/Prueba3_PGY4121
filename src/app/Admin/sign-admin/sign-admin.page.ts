@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServerFireService } from 'src/app/service/serverFire/server-fire.service';
-import { Admin } from 'src/app/interface/admin.interface';
 
 @Component({
   selector: 'app-sign-admin',
@@ -33,7 +32,7 @@ export class SignAdminPage implements OnInit {
   ngOnInit() {
   }
   onSubmit() {
-    this.adminServer.createAdmin(this.aSignForm.value.admin)
+    this.adminServer.register(this.aSignForm.value.admin)
       .then
       (
         response => {

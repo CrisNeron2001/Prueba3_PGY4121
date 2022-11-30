@@ -15,16 +15,6 @@ export class ProfilePage implements OnInit {
     (
       private userServer: ServerFireService
     ) {
-    this.user = [{
-      uid: '',
-      username: '',
-      password: '',
-      name: '',
-      email: '',
-      phone: '',
-      address: '',
-      age: ''
-    }];
   }
 
   ngOnInit() {

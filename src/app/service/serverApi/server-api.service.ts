@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Character } from 'src/app/interface/chara.interface';
-
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +18,7 @@ export class ServerApiService {
   }
 
   public getById(id: string) {
-    return this.http.get<Character>(`${this.url}/${id}`);
+    return this.http.get<any>(`${this.url}/${id}`);
   }
-
 
 }

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ver Mis Personajes Guardados</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let c of chara" [fullscreen]="true">
+  <ion-list>
+    <div>
+      <ion-item>
+        <h4>{{c.name}}</h4>
+      </ion-item>
+      <ion-item>
+        <p>{{c.status}}</p>
+      </ion-item>
+      <ion-item>
+        <p>{{c.species}}</p>
+      </ion-item>
+      <ion-item>
+        <p>{{c.gender}}</p>
+      </ion-item>
+    </div>
+    <ion-button (click)="onDelete(c)">Borrar Personaje</ion-button>
+  </ion-list>
+</ion-content>

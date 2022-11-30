@@ -1,0 +1,40 @@
+ion-title {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    color: #fff;
+}
+
+ion-button {
+    justify-content: center;
+    width: 495px;
+    border-width: 50px;
+}
+
+ion-card {
+    padding-top: 500%;
+}
+
+ion-content {
+    padding-top: 500%;
+}
+
+ion-card-content {
+    padding-top: 500%;
+    --ion-background-color: transparent !important;
+    box-shadow: none;
+    text-align: center;
+}
+
+ion-content {
+    --ion-background-color: #3e6777;
+}
+
+.wrappContent {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Character } from 'src/app/interface/chara.interface';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServerFireService } from 'src/app/service/serverFire/server-fire.service';
 import { HttpClient } from '@angular/common/http';
-import { threadId } from 'worker_threads';
-import { ServerApiService } from 'src/app/service/serverApi/server-api.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Character } from 'src/app/interface/chara.interface';
 
 @Component({
   selector: 'app-check-character',
@@ -13,21 +12,39 @@ import { ServerApiService } from 'src/app/service/serverApi/server-api.service';
 })
 export class CheckCharacterPage implements OnInit {
 
-  chara: any;
+  chara: Character;
   characterId: string;
+  formChara: FormGroup;
 
   constructor(
     private http: HttpClient,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private charaServer: ServerFireService
   ) {
+    this.formChara = new FormGroup({
+      name: new FormControl(),
+      gender: new FormControl(),
+      status: new FormControl(),
+      species: new FormControl()
+    });
   }
 
   ngOnInit() {
     this.characterId = this.activatedRoute.snapshot.paramMap.get('id')
-    this.http.get('https://rickandmortyapi.com/api/character/' + this.characterId)
+    this.http.get<any>('https://rickandmortyapi.com/api/character/' + this.characterId)
       .subscribe(res => this.chara = res);
   }
 
+  onSubmit() {
+    console.log(this.formChara.value)
+    const response = this.charaServer.createCharacter(this.formChara.value)
+      .then(() => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
+  }
 
 }

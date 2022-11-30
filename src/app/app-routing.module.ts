@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
   {
@@ -14,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./User/login/login.module').then(m => m.LoginPageModule)
+    loadChildren: () => import('./User/login/login.module').then(m => m.LoginPageModule),
+
   },
   {
     path: 'signin',
@@ -54,6 +55,10 @@ const routes: Routes = [
     path: 'check-user',
     loadChildren: () => import('./Admin/check-user/check-user.module').then(m => m.CheckUserPageModule)
   },
+  {
+    path: 'add-character',
+    loadChildren: () => import('./User/add-character/add-character.module').then( m => m.AddCharacterPageModule)
+  }
 ];
 
 @NgModule({

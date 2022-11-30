@@ -1,30 +1,11 @@
 import { Injectable } from '@angular/core';
-import {
-  Auth,
-  signInWithEmailAndPassword,
-  signOut,
-  signInWithPopup,
-  GoogleAuthProvider
-} from '@angular/fire/auth';
-import {
-  getFirestore,
-  Firestore,
-  collection,
-  addDoc,
-  collectionData,
-  doc,
-  deleteDoc,
-  getDocs,
-  query,
-  where,
-  setDoc,
-  getDoc,
-  DocumentReference
-} from '@angular/fire/firestore';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, getAuth } from '@angular/fire/auth';
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
 import { User } from 'src/app/interface/user.interface';
-import { Admin } from 'src/app/interface/admin.interface';
 import { Character } from 'src/app/interface/chara.interface';
+import { Admin } from 'src/app/interface/admin.interface';
 import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +15,13 @@ export class ServerFireService {
   constructor
     (
       private firestore: Firestore,
-      private auth: Auth
+      private auth: Auth,
     ) {
 
+  }
+
+  register({ email, password }: any) {
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
   login({ email, password }: any) {
@@ -75,7 +60,7 @@ export class ServerFireService {
     return collectionData(dataRef, { idField: 'id' }) as Observable<Admin[]>;
   }
 
-  addCharacter(chara: Character) {
+  createCharacter(chara: Character) {
     const dataRef = collection(this.firestore, 'Character');
     return addDoc(dataRef, chara);
   }
@@ -89,4 +74,6 @@ export class ServerFireService {
     const dataDocRef = doc(this.firestore, `data/${chara.id}`);
     return deleteDoc(dataDocRef);
   }
+
+
 }

@@ -16,13 +16,8 @@ export class CheckUserPage implements OnInit {
   ) {
     this.user = [{
       uid: '',
-      username: '',
       password: '',
-      name: '',
       email: '',
-      phone: '',
-      address: '',
-      age: ''
     }];
   }
 

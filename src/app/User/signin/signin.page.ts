@@ -34,7 +34,7 @@ export class SigninPage implements OnInit {
 
   onSubmit() {
     {
-      const response = this.userServer.createUser(this.signForm.value)
+      const response = this.userServer.register(this.signForm.value)
         .then
         (
           response => {
